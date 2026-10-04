@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishal Kotkar — Data Analyst &amp; AI Engineer</title>
+<meta name="description" content="Vishal Kotkar — Data Analyst and AI Engineer. Portfolio, projects, skills and contact details.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F7F4;
+    --surface:#FFFFFF;
+    --ink:#16181D;
+    --ink-soft:#565B66;
+    --ink-faint:#8A8F99;
+    --line:#E1E3E0;
+    --accent:#1F4B43;
+    --accent-soft:#E5EDE9;
+    --accent-ink:#0F2B25;
+    --radius:3px;
+    --maxw:1040px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Libre Franklin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Libre Franklin', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ul{margin:0; padding:0; list-style:none;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,247,244,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;}
+  .navlinks{display:flex; gap:28px; align-items:center;}
+  .navlinks a{
+    font-size:0.92rem; color:var(--ink-soft); font-weight:500;
+    padding:6px 0; border-bottom:2px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .navlinks a:hover{color:var(--ink); border-color:var(--accent);}
+  .navlinks .cta{
+    color:#fff; background:var(--accent); padding:9px 16px;
+    border-radius:var(--radius); font-weight:600;
+  }
+  .navlinks .cta:hover{background:var(--accent-ink);}
+  .navtoggle{display:none; background:none; border:1px solid var(--line); border-radius:var(--radius); padding:8px 10px; font-size:1rem; cursor:pointer;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:72px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:44px;
+    align-items:start;
+  }
+  .avatar{
+    width:132px; height:132px; border-radius:50%;
+    background:var(--accent-soft);
+    border:1px solid var(--line);
+    display:block;
+    flex-shrink:0;
+    overflow:hidden;
+  }
+  .avatar img{
+    width:100%; height:100%; object-fit:cover; border-radius:50%;
+  }
+  .status-line{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.82rem; color:var(--ink-soft); font-weight:600;
+    margin-bottom:14px;
+  }
+  .dot{width:7px; height:7px; border-radius:50%; background:#3E8E6E;}
+  .hero h1{font-size:2.5rem; line-height:1.12; margin-bottom:14px;}
+  .hero h1 em{font-style:normal; color:var(--accent);}
+  .hero .role{font-size:1.08rem; color:var(--ink-soft); font-weight:500; margin-bottom:18px; max-width:56ch;}
+  .hero .summary{color:var(--ink-soft); max-width:62ch; margin-bottom:26px;}
+  .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:var(--radius);
+    font-weight:600; font-size:0.92rem;
+    border:1px solid var(--line);
+  }
+  .btn-primary{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .btn-primary:hover{background:var(--accent-ink); border-color:var(--accent-ink);}
+  .btn-ghost{background:var(--surface); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink-faint);}
+
+  .contact-row{display:flex; flex-wrap:wrap; gap:18px; font-size:0.9rem; color:var(--ink-soft);}
+  .contact-row a{color:var(--ink-soft); border-bottom:1px solid transparent;}
+  .contact-row a:hover{color:var(--accent); border-color:var(--accent);}
+
+  .stat-strip{
+    margin-top:40px; padding-top:28px; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
+  }
+  .stat b{display:block; font-size:1.6rem; font-weight:800; color:var(--ink);}
+  .stat span{font-size:0.82rem; color:var(--ink-soft);}
+
+  /* ---------- Sections ---------- */
+  section{padding:60px 0;}
+  section.alt{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .section-head{margin-bottom:34px; max-width:60ch;}
+  .section-head h2{font-size:1.55rem; margin-bottom:8px;}
+  .section-head p{color:var(--ink-soft); font-size:0.98rem;}
+
+  /* Timeline (education + internship — genuinely sequential) */
+  .timeline{display:flex; flex-direction:column; gap:0;}
+  .tl-item{
+    display:grid; grid-template-columns:110px 1fr; gap:24px;
+    padding:22px 0; border-top:1px solid var(--line);
+  }
+  .tl-item:first-child{border-top:none;}
+  .tl-period{color:var(--ink-faint); font-size:0.86rem; font-weight:600; padding-top:2px;}
+  .tl-role{font-size:1.08rem; font-weight:700; margin-bottom:2px;}
+  .tl-org{color:var(--accent); font-weight:600; font-size:0.94rem; margin-bottom:10px;}
+  .tl-desc{color:var(--ink-soft); font-size:0.95rem; max-width:64ch;}
+  .tl-tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+  .tag{
+    font-size:0.78rem; padding:4px 10px; border:1px solid var(--line);
+    border-radius:20px; color:var(--ink-soft); background:var(--bg);
+  }
+
+  /* Skills */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+  }
+  .skill-col{
+    padding:22px 24px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--surface);
+  }
+  .skill-col:nth-last-child(-n+1){border-right:none;}
+  .skill-col h3{font-size:0.95rem; margin-bottom:12px;}
+  .skill-col ul{display:flex; flex-direction:column; gap:7px;}
+  .skill-col li{font-size:0.92rem; color:var(--ink-soft);}
+  .skill-col li b{color:var(--ink); font-weight:600;}
+
+  /* Projects */
+  .projects{display:flex; flex-direction:column; gap:0;}
+  .project{
+    padding:28px 0; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:1fr; gap:14px;
+  }
+  .project:first-child{border-top:none;}
+  .project-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px;}
+  .project-head h3{font-size:1.18rem;}
+  .project-kicker{font-size:0.78rem; color:var(--accent); font-weight:700; letter-spacing:0.01em;}
+  .project-metrics{display:flex; gap:22px; flex-wrap:wrap; margin:2px 0 6px;}
+  .project-metrics div b{display:block; font-size:1.05rem; font-weight:800;}
+  .project-metrics div span{font-size:0.78rem; color:var(--ink-faint);}
+  .project ul.details{display:flex; flex-direction:column; gap:6px; margin-bottom:6px;}
+  .project ul.details li{
+    color:var(--ink-soft); font-size:0.94rem; padding-left:16px; position:relative; max-width:74ch;
+  }
+  .project ul.details li::before{
+    content:"–"; position:absolute; left:0; color:var(--ink-faint);
+  }
+  .project-footer{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:6px;}
+  .project-link{font-weight:600; font-size:0.9rem; color:var(--accent); border-bottom:1px solid var(--accent-soft);}
+  .project-link:hover{border-color:var(--accent);}
+
+  /* Certifications */
+  .cert-list{display:flex; flex-direction:column;}
+  .cert-item{
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+    padding:16px 0; border-top:1px solid var(--line); flex-wrap:wrap;
+  }
+  .cert-item:first-child{border-top:none;}
+  .cert-name{font-weight:700; font-size:0.98rem;}
+  .cert-issuer{color:var(--ink-soft); font-size:0.88rem;}
+  .cert-link{
+    font-size:0.85rem; font-weight:600; color:var(--accent);
+    border:1px solid var(--accent-soft); padding:6px 12px; border-radius:20px;
+    white-space:nowrap;
+  }
+  .cert-link:hover{background:var(--accent-soft);}
+
+  .cert-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:18px;
+  }
+  .cert-card{
+    border:1px solid var(--line); border-radius:var(--radius); background:var(--surface);
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .cert-card .cert-thumb{
+    display:block; width:100%; aspect-ratio:1.3/1; overflow:hidden; background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .cert-card .cert-thumb img{width:100%; height:100%; object-fit:cover; object-position:top;}
+  .cert-card-body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:4px; flex:1;}
+  .cert-card .cert-name{font-size:0.94rem; line-height:1.3;}
+  .cert-card .cert-issuer{margin-bottom:4px;}
+  .cert-card .cert-link{
+    align-self:flex-start; margin-top:8px;
+  }
+
+  /* Contact / footer */
+  .contact-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:start;}
+  .contact-cards{display:flex; flex-direction:column; gap:12px;}
+  .contact-card{
+    display:flex; align-items:center; gap:14px; padding:16px 18px;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  }
+  .contact-card .ico{
+    width:34px; height:34px; border-radius:50%; background:var(--accent-soft);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    color:var(--accent-ink); font-size:0.85rem; font-weight:700;
+  }
+  .contact-card b{display:block; font-size:0.92rem;}
+  .contact-card span{font-size:0.85rem; color:var(--ink-soft);}
+
+  footer{
+    padding:28px 0; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    font-size:0.85rem; color:var(--ink-faint);
+  }
+
+  @media (max-width:760px){
+    .navlinks{
+      position:fixed; top:64px; left:0; right:0; bottom:0;
+      background:var(--bg); flex-direction:column; align-items:flex-start;
+      padding:24px 28px; gap:18px; display:none; border-top:1px solid var(--line);
+    }
+    .navlinks.open{display:flex;}
+    .navtoggle{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .stat-strip{grid-template-columns:repeat(2,1fr); row-gap:24px;}
+    .skills-grid{grid-template-columns:1fr;}
+    .skill-col{border-right:none;}
+    .contact-grid{grid-template-columns:1fr;}
+    .tl-item{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">Vishal Kotkar</div>
+    <button class="navtoggle" id="navtoggle" aria-label="Toggle menu">☰</button>
+    <nav class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="https://adventurecodeing.github.io/Vishal_Kotkar_Resume.pdf">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="avatar"><img src="assets/profile.jpg" alt="Vishal Kotkar"></div>
+    <div>
+      <div class="status-line"><span class="dot"></span> Pursuing M.Sc. Data Science · Open to Data Analyst / AI roles · Pune, India</div>
+      <h1>Vishal Kotkar<br><em>Data Analyst &amp; AI Engineer</em></h1>
+      <p class="role">M.Sc. Data Science student, Fergusson College, Pune (2026–2027) · B.Sc. Computer Science (Honours), MIT World Peace University, Pune — CGPA 8.60/10.</p>
+      <p class="summary">I build data and AI systems end-to-end: SQL data warehouses, Power BI dashboards, and Retrieval-Augmented Generation applications. Six months of full-stack development experience shipping production features on an agile team.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://adventurecodeing.github.io/Vishal_Kotkar_Resume.pdf">Download Resume</a>
+        <a class="btn btn-ghost" href="mailto:vishalkotkar5453@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/vishal-kotkar-9b8652261">LinkedIn</a>
+      </div>
+      <div class="contact-row">
+        <a href="mailto:vishalkotkar5453@gmail.com">vishalkotkar5453@gmail.com</a>
+        <a href="tel:+918767948685">+91 87679 48685</a>
+        <a href="https://github.com/adventurecodeing">github.com/adventurecodeing</a>
+        <span>Pune, Maharashtra, India</span>
+      </div>
+      <div class="stat-strip">
+        <div class="stat"><b>8.60</b><span>CGPA / 10</span></div>
+        <div class="stat"><b>4</b><span>End-to-end projects</span></div>
+        <div class="stat"><b>200K+</b><span>Records analyzed</span></div>
+        <div class="stat"><b>6 mo.</b><span>Software dev. internship</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+    </div>
+    <p style="max-width:70ch; color:var(--ink-soft); font-size:1rem;">
+      I'm a Computer Science graduate, currently pursuing an M.Sc. in Data Science, with a focus on data
+      analytics and applied AI — the work of turning raw, messy data into decisions people can act on. My
+      academic foundation covers databases, data warehousing, machine learning and statistics, and I've spent
+      the past year building that theory into shipped systems across SQL, ML algorithms, RAG, data cleaning,
+      LLMs, GenAI and data visualization. I'm currently looking for roles in data analytics, applied AI/ML, or
+      application governance where I can keep building systems like these.
+    </p>
+  </div>
+</section>
+
+<section class="alt" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education &amp; Experience</h2>
+      <p>Academic background and hands-on development experience.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-period">2022 – 2026</div>
+        <div>
+          <div class="tl-role">B.Sc. Computer Science (Honours)</div>
+          <div class="tl-org">MIT World Peace University, Pune</div>
+          <p class="tl-desc">Graduated with a CGPA of 8.60/10. Coursework spanned database management, data warehousing, machine learning, algorithms and statistics, alongside self-driven analytics and AI projects built outside the classroom.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Jan – Jun 2026</div>
+        <div>
+          <div class="tl-role">Software Developer Intern</div>
+          <div class="tl-org">Virtuosos Solutions Pvt. Ltd.</div>
+          <p class="tl-desc">Six-month internship on the MeLifeCoaching.com platform (MERN stack) — tested application functionality and verified REST API behavior using Postman, and supported the development team within an agile workflow. Delivered a 70+ page project report and internship logbook as part of the engagement.</p>
+          <div class="tl-tags">
+            <span class="tag">MongoDB</span><span class="tag">Express</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Postman</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">2026 – 2027</div>
+        <div>
+          <div class="tl-role">M.Sc. Data Science <span style="color:var(--accent); font-weight:600; font-size:0.82rem;">— In progress</span></div>
+          <div class="tl-org">Fergusson College, Pune</div>
+          <p class="tl-desc">Currently pursuing a Master's in Data Science, building on an undergraduate foundation in databases, machine learning and statistics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <p>Grouped by how they're used, not just listed.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h3>Languages &amp; Core</h3>
+        <ul>
+          <li><b>Python</b> — pandas, NumPy, scikit-learn</li>
+          <li><b>SQL</b></li>
+          <li>Git / GitHub</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Data &amp; Analytics</h3>
+        <ul>
+          <li>Data cleaning &amp; validation</li>
+          <li>ETL / ELT pipeline design</li>
+          <li>Power BI, Tableau, DAX</li>
+          <li>Data visualization</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>AI &amp; Machine Learning</h3>
+        <ul>
+          <li>ML algorithms</li>
+          <li>Retrieval-Augmented Generation (RAG)</li>
+          <li>LLMs &amp; GenAI</li>
+          <li>LangChain, FAISS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <p>Four end-to-end builds spanning data engineering, machine learning and applied AI.</p>
+    </div>
+    <div class="projects">
+
+      <div class="project">
+        <div class="project-head">
+          <h3>DocuMind — RAG-Powered Document Q&amp;A Chatbot</h3>
+          <span class="project-kicker mono">AI / RAG</span>
+        </div>
+        <div class="project-metrics">
+          <div><b>Top-4</b><span>Semantic passages retrieved</span></div>
+          <div><b>5–10s</b><span>Search response time</span></div>
+          <div><b>₹0</b><span>API cost (offline model)</span></div>
+        </div>
+        <ul class="details">
+          <li>Built a Retrieval-Augmented Generation pipeline with LangChain and FAISS that parses PDFs, chunks text, generates embeddings, and retrieves the most relevant passages per query.</li>
+          <li>Integrated a free, offline LLaMA model for grounded answer generation with multi-turn chat history and source display, anchoring every answer to document context to eliminate hallucination.</li>
+          <li>Deployed an interactive Streamlit interface that works with any PDF — research papers, manuals, reports.</li>
+        </ul>
+        <div class="project-footer">
+          <div class="tl-tags"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">LLaMA</span><span class="tag">Streamlit</span></div>
+          <a class="project-link" href="https://github.com/adventurecodeing">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>Smart Irrigation Intelligence System (SIIS)</h3>
+          <span class="project-kicker mono">ML / ANALYTICS / BI</span>
+        </div>
+        <div class="project-metrics">
+          <div><b>0.97</b><span>Model R²</span></div>
+          <div><b>0.22</b><span>RMSE</span></div>
+          <div><b>1,000</b><span>Predictions exported</span></div>
+        </div>
+        <ul class="details">
+          <li>Engineered three KPIs — Water Stress Index, Irrigation Efficiency Score, Drought Risk — and designed a star-schema warehouse in SQL Server with advanced T-SQL (CTEs, window functions, a stored procedure for zone alerts).</li>
+          <li>Trained a Random Forest model achieving R²&nbsp;=&nbsp;0.97, with temperature identified as the dominant feature at 67.5% importance; 1,000 predictions exported back to SQL Server.</li>
+          <li>Built a three-page Power BI dashboard with DAX measures showing summer drought risk running 2× higher than monsoon.</li>
+        </ul>
+        <div class="project-footer">
+          <div class="tl-tags"><span class="tag">SQL Server</span><span class="tag">Power BI</span><span class="tag">T-SQL</span><span class="tag">DAX</span></div>
+          <a class="project-link" href="https://github.com/adventurecodeing">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>Personal Finance Management System</h3>
+          <span class="project-kicker mono">FULL-STACK / WEB APP</span>
+        </div>
+        <div class="project-metrics">
+          <div><b>1,000+</b><span>Transactions persisted</span></div>
+          <div><b>3</b><span>Core modules</span></div>
+        </div>
+        <ul class="details">
+          <li>Built a Django and JavaScript full-stack web app with authentication, CRUD endpoints and SQL-backed business logic to track income, expenses and savings.</li>
+          <li>Added tax and PPF calculators and pie-chart visualizations for spending breakdowns.</li>
+        </ul>
+        <div class="project-footer">
+          <div class="tl-tags"><span class="tag">Django</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div>
+          <a class="project-link" href="https://github.com/adventurecodeing">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>IPL Data Analytics Dashboard</h3>
+          <span class="project-kicker mono">DATA ANALYTICS</span>
+        </div>
+        <div class="project-metrics">
+          <div><b>200K+</b><span>Records analyzed</span></div>
+          <div><b>10</b><span>Seasons covered (2009–2019)</span></div>
+        </div>
+        <ul class="details">
+          <li>Cleaned, transformed and analyzed 200,000+ IPL records with pandas, covering trend analysis on player and match performance.</li>
+          <li>Built Power BI dashboards visualizing team performance, win rates and player statistics across 10 seasons.</li>
+          <li>Automated repetitive reporting with Python scripts, reducing manual effort in data aggregation.</li>
+        </ul>
+        <div class="project-footer">
+          <div class="tl-tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Power BI</span></div>
+          <a class="project-link" href="https://github.com/adventurecodeing">View on GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Certifications</h2>
+      <p>Seven certifications across AI, machine learning, data visualization and programming.</p>
+    </div>
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <a class="cert-thumb" href="assets/cert-oracle-genai.jpg" target="_blank" rel="noopener"><img src="assets/cert-oracle-genai.jpg" alt="Oracle Certified Generative AI Professional certificate"></a>
+        <div class="cert-card-body">
+          <div class="cert-name">Oracle Certified Generative AI Professional</div>
+          <div class="cert-issuer">Oracle · Oct 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <a class="cert-thumb" href="assets/cert-nptel-ml.jpg" target="_blank" rel="noopener"><img src="assets/cert-nptel-ml.jpg" alt="NPTEL Introduction to Machine Learning certificate"></a>
+        <div class="cert-card-body">
+          <div class="cert-name">Introduction to Machine Learning</div>
+          <div class="cert-issuer">NPTEL · IIT Kharagpur · 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <a class="cert-thumb" href="assets/cert-python-ds-ai.jpg" target="_blank" rel="noopener"><img src="assets/cert-python-ds-ai.jpg" alt="Python for Data Science, AI and Development certificate"></a>
+        <div class="cert-card-body">
+          <div class="cert-name">Python for Data Science, AI &amp; Development</div>
+          <div class="cert-issuer">IBM · Coursera · 2026</div>
+          <a class="cert-link" href="https://coursera.org/verify/YLRSTFBT3VCV" target="_blank" rel="noopener">View credential</a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <a class="cert-thumb" href="assets/cert-r-programming.jpg" target="_blank" rel="noopener"><img src="assets/cert-r-programming.jpg" alt="Data Analysis with R Programming certificate"></a>
+        <div class="cert-card-body">
+          <div class="cert-name">Data Analysis with R Programming</div>
+          <div class="cert-issuer">Google · Coursera · 2026</div>
+          <a class="cert-link" href="https://coursera.org/verify/2OF2YM6GTVW5" target="_blank" rel="noopener">View credential</a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <a class="cert-thumb" href="assets/cert-tata-dataviz.jpg" target="_blank" rel="noopener"><img src="assets/cert-tata-dataviz.jpg" alt="Tata Data Visualisation certificate"></a>
+        <div class="cert-card-body">
+          <div class="cert-name">Data Visualisation: Empowering Business with Effective Insights</div>
+          <div class="cert-issuer">Tata Group · Forage · 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <a class="cert-thumb" href="assets/cert-python-fundamentals.jpg" target="_blank" rel="noopener"><img src="assets/cert-python-fundamentals.jpg" alt="Python Fundamentals for Beginners certificate"></a>
+        <div class="cert-card-body">
+          <div class="cert-name">Python Fundamentals for Beginners</div>
+          <div class="cert-issuer">Great Learning Academy · 2024</div>
+          <a class="cert-link" href="https://www.mygreatlearning.com/certificate/CBEVOOUG" target="_blank" rel="noopener">View credential</a>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <a class="cert-thumb" href="assets/cert-naip-instrumentation.jpg" target="_blank" rel="noopener"><img src="assets/cert-naip-instrumentation.jpg" alt="National Academic Immersion Program - Process Instrumentation Lab certificate"></a>
+        <div class="cert-card-body">
+          <div class="cert-name">National Academic Immersion Program — Process Instrumentation Lab</div>
+          <div class="cert-issuer">Siemens · NITTTR Bhopal · Jul 2024</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head">
+        <h2>Let's talk</h2>
+        <p>I'm actively looking for Data Analyst, Data Scientist and AI/ML roles. If you're working on something data-driven, I'd like to hear about it.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:vishalkotkar5453@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="https://adventurecodeing.github.io/Vishal_Kotkar_Resume.pdf">Download Resume</a>
+      </div>
+    </div>
+    <div class="contact-cards">
+      <a class="contact-card" href="mailto:vishalkotkar5453@gmail.com">
+        <div class="ico">@</div>
+        <div><b>Email</b><span>vishalkotkar5453@gmail.com</span></div>
+      </a>
+      <a class="contact-card" href="tel:+918767948685">
+        <div class="ico">☎</div>
+        <div><b>Phone</b><span>+91 87679 48685</span></div>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/vishal-kotkar-9b8652261">
+        <div class="ico">in</div>
+        <div><b>LinkedIn</b><span>vishal-kotkar-9b8652261</span></div>
+      </a>
+      <a class="contact-card" href="https://github.com/adventurecodeing">
+        <div class="ico">&lt;/&gt;</div>
+        <div><b>GitHub</b><span>adventurecodeing</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+    <span>© 2026 Vishal Kotkar</span>
+    <span>Pune, Maharashtra, India</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navtoggle').addEventListener('click', function(){
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+  document.querySelectorAll('.navlinks a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navlinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
